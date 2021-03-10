@@ -64,3 +64,26 @@ def blogdetails(request,slug):
                    'latest_post':latest_post,
                     'categories': categories,
                    'comment_form': comment_form})    
+
+
+
+def Posts_in_CategoryView(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    posts_in_cat = category.post_set.all()
+
+    # pagination
+    paginator = Paginator(posts_in_cat, 8) # Show 8 posts per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    context = {
+            'posts_in_cat':posts_in_cat,
+            'cat_name': category,
+            'page_obj': page_obj,
+    }
+   
+   
+    
+    return render(request, 'blog/posts_in_category.html', context)
+    
+                      
