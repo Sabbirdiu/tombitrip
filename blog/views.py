@@ -3,6 +3,7 @@ from django.http import HttpResponse
 import datetime
 from .models import Post,Category,Comment,CommentForm
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.db.models import  Q
 # Create your views here.
 def blog(request):
     blog = Post.objects.order_by('-timestamp')
@@ -86,4 +87,16 @@ def Posts_in_CategoryView(request, slug):
     
     return render(request, 'blog/posts_in_category.html', context)
     
-                      
+def search(request):
+    queryset = Post.objects.all()
+    query = request.GET.get('q')
+    if query:
+        queryset = queryset.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query)
+        ).distinct()
+    context = {
+        'queryset': queryset,
+        'query':query
+    }
+    return render(request, 'blog/search_results.html', context)                     
