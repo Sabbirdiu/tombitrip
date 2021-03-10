@@ -36,7 +36,7 @@
                 {% for blog in listings  %}
                 <div class="col-lg-4 col-md-6 col-sm-12 pt_30">
                     <div class="item">
-                        <div style="background-image: url('{{ blog.image.url }})"   class="photo" >
+                        <div "   class="photo" >
                             <img src="{{ blog.image.url }}" alt="">
                             <span class="post-date">{{ blog.timestamp|date:"F d, Y" }}</span>
                         </div>

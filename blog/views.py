@@ -19,11 +19,10 @@ def blog(request):
     }
     return render(request, 'blog/blog.html',context)
 def blogdetails(request,slug):
-    # get post object
-    post = get_object_or_404(Post,  slug=slug)
-    # news_featured = Post.objects.filter(featured=True).order_by('-timestamp')[0:4]
+  
+    post = get_object_or_404(Post,  slug=slug)   
     posts = Post.objects.all()
-   
+    latest_post = Post.objects.order_by('-timestamp')[:4]
     # list of active parent comments
     comments = post.comments.filter(active=True, parent__isnull=True)
     if request.method == 'POST':
@@ -61,5 +60,6 @@ def blogdetails(request,slug):
                   
                    'comments': comments,
                    'posts':posts,
+                   'latest_post':latest_post,
                   
                    'comment_form': comment_form})    

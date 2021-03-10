@@ -100,47 +100,9 @@
 
 </div>
 <!--Comment end-->
-                        <h4>Comments</h4>
-                        <ul>
-                            <li>
-                                <div class="comment-item">
-                                    <div class="thumb">
-                                        <img src="img/user1.png" alt="">
-                                    </div>
-                                    <div class="com-text">
-                                        <h5>Danny Ashton</h5>
-                                        <span class="date"><i class="fa fa-calendar"></i> 25 October, 2018</span>
-                                        <span class="reply"><a href="#">Reply</a></span>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis aperiam est ex optio magnam? Aliquid itaque libero eius labore fugiat atque, amet totam enim.
-                                        </p>
-                                    </div>
-                                </div>
-                               
-                            
-                        </ul>
+                       
                     </div>
-                    <div class="comment-form headstyle mt_60">
-                        <h4>Get a Comment</h4>
-                        <form>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Email Address">
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Comment"></textarea>
-                                </div>
-                                
-                                    <input class="btn btn-outline-secondary my-5" type="submit" value="Submit"></p>
-                              
-
-                            </div>
-                        </form>
-                    </div>
+                  
                 </div>
 
 
@@ -175,62 +137,24 @@
                             <h5>Recent Post</h5>
                         </div>
                         <div class="sidebar-body recent-post">
-
+                            {% for obj in latest_post %}
+                            
                             <!--Post item-->
                             <div class="s-post-item mb_10 mt_10">
                                 <div class="photo">
-                                    <a href="blog-details.html"><img src="img/car-1.jpeg" alt=""></a>
+                                    <a href="{{ blog.get_absolute_url }}"><img src="{{obj.image.url}}" alt=""></a>
                                 </div>
                                 <div class="text">
-                                    <span class="date-time">22 June, 2020</span>
+                                    <span class="date-time">{{ obj.timestamp|date:"F d, Y" }}</span>
                                     <h4>
-                                        <a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                                        <a href="{{ blog.get_absolute_url }}">{{obj.description| striptags|truncatechars:100}}</a>
                                     </h4>
                                 </div>
                             </div>
                             <!--/ Post item-->
+                            {% endfor %}
 
-                            <!--Post item-->
-                            <div class="s-post-item mb_10 mt_10">
-                                <div class="photo">
-                                    <a href="blog-details.html"><img src="img/13.jpg" alt=""></a>
-                                </div>
-                                <div class="text">
-                                    <span class="date-time">22 June, 2020</span>
-                                    <h4>
-                                        <a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <!--/ Post item-->
-
-                            <!--Post item-->
-                            <div class="s-post-item mb_10 mt_10">
-                                <div class="photo">
-                                    <a href="blog-details.html"><img src="img/slide5.jpg" alt=""></a>
-                                </div>
-                                <div class="text">
-                                    <span class="date-time">22 June, 2020</span>
-                                    <h4>
-                                        <a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <!--/ Post item-->
-
-                            <!--Post item-->
-                            <div class="s-post-item mb_10 mt_10">
-                                <div class="photo">
-                                    <a href="blog-details.html"><img src="img/car-1.jpeg" alt=""></a>
-                                </div>
-                                <div class="text">
-                                    <span class="date-time">22 June, 2020</span>
-                                    <h4>
-                                        <a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <!--/ Post item-->
+                         
 
                         </div>
                     </div>
