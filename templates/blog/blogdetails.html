@@ -168,12 +168,10 @@
                         </div>
                         <div class="sidebar-body category">
                             <ul>
-                                <li><a href="#">Privacy</a></li>
-                                <li><a href="#">Business</a></li>
-                                <li><a href="#">Tips</a></li>
-                                <li><a href="#">City</a></li>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Uncategorized</a></li>
+                                {% for cat in categories %}
+                                <li><a href="#">{{ cat }}</a></li>
+                                
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

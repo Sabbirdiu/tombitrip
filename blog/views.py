@@ -23,6 +23,7 @@ def blogdetails(request,slug):
     post = get_object_or_404(Post,  slug=slug)   
     posts = Post.objects.all()
     latest_post = Post.objects.order_by('-timestamp')[:4]
+    categories = Category.objects.all()
     # list of active parent comments
     comments = post.comments.filter(active=True, parent__isnull=True)
     if request.method == 'POST':
@@ -61,5 +62,5 @@ def blogdetails(request,slug):
                    'comments': comments,
                    'posts':posts,
                    'latest_post':latest_post,
-                  
+                    'categories': categories,
                    'comment_form': comment_form})    
