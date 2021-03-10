@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+from django.forms import ModelForm
+from django import forms
 # Create your models here.
 # author
 # title/slug/author/description/image/date/featured/pre_post/next_post
@@ -67,3 +69,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Comment by {}'.format(self.name)        
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'body') 
