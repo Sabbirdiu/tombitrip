@@ -8,7 +8,7 @@ from django.urls import reverse
 # comment
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField()
+    profile_picture = models.ImageField(blank=True,null=True)
 
     def __str__(self):
         return self.user.username
@@ -34,7 +34,7 @@ class Post(models.Model):
     description = models.TextField(null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='photos/%Y/%m/%d/')
     categories = models.ManyToManyField(Category)
     featured = models.BooleanField()
     previous_post = models.ForeignKey(
