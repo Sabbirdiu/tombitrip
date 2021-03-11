@@ -7,7 +7,7 @@
             </div>
             {% endif %}
             <div class="name"> 
-                <h5>{{ user.username}} </h5>
+                <h5>{{ user.first_name}} {{ user.last_name}} </h5>
             </div>
         </div>
         <ul>
@@ -15,7 +15,7 @@
                 <a href="{% url 'user_profile' %}"><i class="fa fa-bars" aria-hidden="true"></i>Dashboard</a>
             </li>
             <li class="">
-                <a href="edit-profile.html"><i class="fa fa-user" aria-hidden="true"></i>Edit profile</a>
+                <a href="{% url 'user_update' %}"><i class="fa fa-user" aria-hidden="true"></i>Edit profile</a>
             </li>
             <li class="">
                 <a href="profile-picture.html"><i class="fa fa-photo" aria-hidden="true"></i>Profile picture</a>

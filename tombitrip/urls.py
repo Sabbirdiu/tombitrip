@@ -32,6 +32,7 @@ urlpatterns = [
     path('login/',userviews.login_form, name='login_form'),
     path('find/',search,name='search'),
     path('logout/',userviews.logout_func, name='logout'),
+    path('update/', userviews.user_update,name='user_update'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
