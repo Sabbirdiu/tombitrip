@@ -131,3 +131,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+AUTHENTICATION_BACKENDS = [
+'django.contrib.auth.backends.ModelBackend',
+'user.authentication.EmailAuthBackend',
+]
+CRISPY_TEMPLATE_PACK='bootstrap4'
