@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import SignUpForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth.decorators import login_required
+from user.models import UserProfile
 
 # Create your views here.
 def signup_form(request):
@@ -15,11 +17,11 @@ def signup_form(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             # Create data in profile table for user
-            # current_user = request.user
-            # data=UserProfile()
-            # data.user_id=current_user.id
-            # data.image="images/users/user.png"
-            # data.save()
+            current_user = request.user
+            data=UserProfile()
+            data.user_id=current_user.id
+            data.image="images/users/user.png"
+            data.save()
             messages.success(request, 'Your account has been created!')
             return HttpResponseRedirect('/login')
         else:
@@ -64,3 +66,13 @@ def logout_func(request):
     #     del request.session[translation.LANGUAGE_SESSION_KEY]
     #     del request.session['currency']
     return HttpResponseRedirect('/blog')    
+
+@login_required(login_url='/login') # Check login
+def user_profile(request):
+    
+    current_user = request.user  # Access User Session information
+    profile = UserProfile.objects.get(user_id=current_user.id)
+    context = {
+              
+               'profile':profile}
+    return render(request,'user/user_profile.html',context)    
