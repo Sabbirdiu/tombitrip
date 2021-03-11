@@ -1,75 +1,77 @@
 {% extends 'base.html' %}
-
-
-
+{% load static %}
 {% block content %}
 
-    <!-- BREADCRUMB -->
-    <div id="breadcrumb">
-        <div class="container">
-            <ul class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li class="active">User Profile</li>
-            </ul>
-        </div>
-    </div>
-    <!-- /BREADCRUMB -->
-
-    <!-- section -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-
-                <div class="col-md-3">
-                   
-                </div>
-
-                <div class="col-md-9">
-                    <div class="billing-details">
-                        <div class="section-title">
-                            <h3 class="title">User Profile Inf.</h3>
-                        </div>
+ <!--banner area start-->
+ <div class="banner-area" style="background-image: url('{% static 'img/slide5.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="inner">
+                    <div class="text">
+                        <nav aria-label="breadcrumb-nav">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+                        </nav>
+                        <h1>Dashboard</h1>
                     </div>
-                     <table class="shopping-cart-table table">
-                        <tr>
-                            <th class="text-left">
-                                <a href="/user/update" class="primary-btn">Update Profile</a>
-                                <a href="/user/password" class="primary-btn">Change Password</a>
-                            </th>
-                            <td><img src="{{ profile.image.url }}" style="border-radius: 45px; height: 200px "></td>
-                        </tr>
-                        <tr>
-                            <th class="text-left">Name Surname</th>
-                            <td class="text-left">{{ user.first_name}} {{ user.last_name}} </td>
-                        </tr>
-                        <tr>
-                            <th class="text-left">Email</th>
-                            <td class="text-left">{{ profile.user.email}}</td>
-                        </tr>
-                        <tr>
-                            <th class="text-left">Phone</th>
-                            <td class="text-left">{{ profile.phone}}</td>
-                        </tr>
-                        <tr>
-                            <th class="text-left">Addres</th>
-                            <td class="text-left">{{ profile.address}}</td>
-                        </tr>
-                        <tr>
-                            <th class="text-left">Age</th>
-                            <td class="text-left">{{ profile.age}}</td>
-                        </tr>
-                       
-                    </table>
                 </div>
-
-
             </div>
-            <!-- /row -->
         </div>
-        <!-- /container -->
     </div>
-    <!-- /section -->
+</div>
+<!--banner area end-->
 
-{% endblock %}
+<!--Dashboard start-->
+<div class="dashboard-content pt_80 pb_80">
+    <div class="container">
+        <div class="row move-dashboard">
+          <!-- add partial sidebar -->
+                  {% include 'user/sidebar.html' %}
+            <div class="col-lg-9 col-md-7">
+
+                <div class="dashboard-body">
+                    <h3>Welcome to Dashboard</h3>
+
+                   
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>Photo</td>
+                                <td>
+                                    <img src="{{ profile.image.url }}" class="w-200">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td>{{ user.username}} {{ user.last_name}} </td>
+                            </tr>
+                            <tr>
+                                <td>Age</td>
+                                <td>{{ profile.age}}  </td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>{{ profile.address}} </td>
+                            </tr>
+                            <tr>
+                                <td>Email Address</td>
+                                <td>{{ profile.user.email}} </td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td>{{ profile.phone}} </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

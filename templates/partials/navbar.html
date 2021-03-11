@@ -14,8 +14,9 @@
                     <nav>
                         <ul id="nav">
                            
-                            {% if user.is_authenticated %}
+                            {% if user.id is not None %}
                             <li><a href="../rent-out-your-vehicle.html">Rent out your vehicle</a></li>
+                            <li><a href="{% url 'blog' %}">Blog</a></li>
                                 <li><a href="messages.html">Messages</a></li>
                                 <li><a href="javascript:void;">Help <span class="caret"></span></a>
                                     <ul class="submenu">
@@ -24,7 +25,7 @@
                                         <li><a href="help.html">Other questions and contact</a></li>
                                     </ul>
                                 </li>
-                                <li class="user-photo-tt"><a href="dashboard.html"><img class="user-menu-photo" src="../img/user1.png" alt=""></a></li>
+                                <li class="user-photo-tt"><a href="{% url 'user_profile' %}"><img class="user-menu-photo" src="{{  request.session.userimage }}" alt=""></a></li>
                                 <li class="user-name-tt"><a href="javascript:void;">{{user.username}} <span class="caret"></span></a>
                                     <ul class="submenu">
                                         <li><a href="dashboard.html">My dashboard</a></li>

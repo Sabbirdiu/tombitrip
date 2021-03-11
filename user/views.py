@@ -44,8 +44,8 @@ def login_form(request):
         if user is not None:
             login(request, user)
             current_user =request.user
-            # userprofile=UserProfile.objects.get(user_id=current_user.id)
-            # request.session['userimage'] = userprofile.image.url
+            userprofile=UserProfile.objects.get(user_id=current_user.id)
+            request.session['userimage'] = userprofile.image.url
            
 
             # Redirect to a success page.
@@ -53,11 +53,7 @@ def login_form(request):
         else:
             messages.warning(request,"Login Error !! Username or Password is incorrect")
             return HttpResponseRedirect('/login')
-    # Return an 'invalid login' error message.
-
-    # category = Category.objects.all()
-    # context = {'category': category
-    #  }
+   
     return render(request, 'user/login_form.html')    
 
 def logout_func(request):

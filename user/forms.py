@@ -83,6 +83,6 @@ class ProfileUpdateForm(forms.ModelForm):
         widgets = {
             'phone'     : TextInput(attrs={'class': 'input','placeholder':'phone'}),
             'address'   : TextInput(attrs={'class': 'input','placeholder':'address'}),
-            'age'      : Select(attrs={'class': 'input','placeholder':'age'}),
+            'age'      : TextInput(attrs={'class': 'input','placeholder':'age'}),
             'image'     : FileInput(attrs={'class': 'input', 'placeholder': 'image', }),
         }        

@@ -9,7 +9,7 @@ from django.utils.safestring import mark_safe
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(blank=True, max_length=20)
-    age = models.IntegerField(blank=True)
+    age = models.CharField(blank=True, max_length=20)
     address = models.CharField(blank=True, max_length=150)
     image = models.ImageField(blank=True, upload_to='images/users/')
  
