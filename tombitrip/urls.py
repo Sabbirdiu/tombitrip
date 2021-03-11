@@ -18,11 +18,20 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from blog.views import search
-
+# local
+from user import views as userviews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/',include("blog.urls")),
+    path('user/',include("blog.urls")),
+    
+
+
+    # local 
+    path('signup/',userviews.signup_form, name='signup_form'),
+    path('login/',userviews.login_form, name='login_form'),
     path('find/',search,name='search'),
+    path('logout/',userviews.logout_func, name='logout'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
