@@ -28,7 +28,7 @@
                                 <li class="user-photo-tt"><a href="{% url 'user_profile' %}"><img class="user-menu-photo" src="{{  request.session.userimage }}" alt=""></a></li>
                                 <li class="user-name-tt"><a href="javascript:void;">{{user.username}} <span class="caret"></span></a>
                                     <ul class="submenu">
-                                        <li><a href="dashboard.html">My dashboard</a></li>
+                                        <li><a href="{% url 'user_profile' %}">My dashboard</a></li>
                                         <li><a href="edit-profile.html">For owners</a></li>
                                         <li><a href="messages.html">Messages</a></li>
                                         <li><a href="my-reservations.html">My reservations</a></li>
