@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # local
     'blog',
     'user',
+    'supply',
     # 3rd paty
     'crispy_forms',
 ]
