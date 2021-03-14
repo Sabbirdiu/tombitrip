@@ -31,7 +31,7 @@ def contact(request):
 
  
 
-    messages.success(request, 'Your message  has been submitted')
+    messages.success(request, 'Your message  has been send')
     return redirect('/contact/contact')
 
   return render(request,'contact/contact.html')    

@@ -3,8 +3,35 @@
 {% load static %}
 {% block title %} | contact page{% endblock title%}
 {% block content %}
-
-
+<div class="banner-area content" style="background-image: url('{% static 'img/slide5.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="inner">
+                    <div class="text">
+                        <nav aria-label="breadcrumb-nav">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active">Contact us</li>
+                            </ol>
+                        </nav>
+                        <h1>Send us a message</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% if messages %}
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}}" role="alert">
+        {{ message }}
+    </div>
+{% endfor %}
+{% endif %}
 <div class="form-area pt_80 pb_80">
     <div class="container">
         <div class="row">
