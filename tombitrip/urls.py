@@ -25,6 +25,7 @@ urlpatterns = [
     path('blog/',include("blog.urls")),
     path('user/',include("user.urls")),
     path('',include("supply.urls")),
+    path('contact/',include("contact.urls")),
     
 
 

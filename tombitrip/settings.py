@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog',
     'user',
     'supply',
+    'contact',
     # 3rd paty
     'crispy_forms',
 ]
