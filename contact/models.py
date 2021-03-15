@@ -7,7 +7,14 @@ class Traveller(models.Model):
     overview = RichTextUploadingField()
     def __str__(self):
          return self.overview
-
+class Ownercamper(models.Model):
+    overview = RichTextUploadingField()
+    def __str__(self):
+         return self.overview
+class Ownercaravan(models.Model):
+    overview = RichTextUploadingField()
+    def __str__(self):
+         return self.overview         
 class Faq(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(null=True)

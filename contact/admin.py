@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Faq,Contact,Traveller
+from .models import Faq,Contact,Traveller,Ownercamper,Ownercaravan
 # Register your models here.
 
 class ContactAdmin(admin.ModelAdmin):
@@ -11,3 +11,5 @@ class ContactAdmin(admin.ModelAdmin):
 admin.site.register(Contact,ContactAdmin)
 admin.site.register(Faq)
 admin.site.register(Traveller)
+admin.site.register(Ownercamper)
+admin.site.register(Ownercaravan)

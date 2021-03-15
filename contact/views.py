@@ -1,14 +1,27 @@
 from django.shortcuts import render,redirect
-from .models import Faq,Contact,Traveller
+from .models import Faq,Contact,Traveller,Ownercamper,Ownercaravan
 from django.contrib import messages
 
 # Create your views here.
+def ownercamper(request):
+  ownercamper = Ownercamper.objects.get()
+  context = {
+    'ownercamper' :ownercamper
+  }
+  return render(request,'contact/ownercamper.html',context)
+def ownercaravan(request):
+  ownercaravan = Ownercaravan.objects.get()
+  context = {
+    'ownercaravan' :ownercaravan
+  }
+  return render(request,'contact/ownercaravan.html',context)  
 def traveller(request):
   traveller = Traveller.objects.get()
   context = {
     'traveller' :traveller
   }
   return render(request,'contact/traveller.html',context)
+
 def faq(request):
     faq = Faq.objects.all()
     context = {
