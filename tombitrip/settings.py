@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'contact',
     # 3rd paty
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [

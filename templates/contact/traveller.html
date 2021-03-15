@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | traveller page{% endblock title%}
+{% block content %}
+<!--banner area start-->
+<div class="banner-area" style="background-image: url('{% static 'img/slide5.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="inner">
+                    <div class="text">
+                        <nav aria-label="breadcrumb-nav">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active">Blog</li>
+                            </ol>
+                        </nav>
+                        <h1>Blog</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--banner area end-->
+
+ <!--start-->
+ <div class="simple-page pt_80 pb_80">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content-area">
+                   {{traveller.overview | safe}}
+                    <span class="quote-text"><a class="btn btn-primary quote-btn mt_40" href="{% url 'supply' %}" role="button">See our campers</a></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end-->
+{% endblock content %}

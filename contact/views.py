@@ -1,7 +1,14 @@
 from django.shortcuts import render,redirect
-from .models import Faq,Contact
+from .models import Faq,Contact,Traveller
 from django.contrib import messages
+
 # Create your views here.
+def traveller(request):
+  traveller = Traveller.objects.get()
+  context = {
+    'traveller' :traveller
+  }
+  return render(request,'contact/traveller.html',context)
 def faq(request):
     faq = Faq.objects.all()
     context = {
