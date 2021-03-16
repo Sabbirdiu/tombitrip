@@ -283,7 +283,7 @@
                                 <div class="photo-in">
                                     <div class=" video-pop" >
                                         <div  class="social--tt " style=''>
-                                            <!-- <i class="fa fa-play" aria-hidden="true"></i> -->
+                                           
                                             <video  width="500" height="500" class="" controls >
                                                 <source src="{{video.video.url}}" type="video/mp4">
                                                 <!-- <b>{{video.title}}</b> -->
@@ -297,13 +297,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--bottom box link here-->
-                      <!-- <video class="mgVideo stretched-link" controls >
-                            <source src="{{video.video.url}}" type="video/mp4">
-                            <b>{{video.title}}</b>
-                            </video> -->
-                        
-                        <!--<a href="#" class="stretched-link"></a>-->
+                      
                     </div>
                 </div>
                 <!-- item-->
@@ -314,16 +308,33 @@
         </div>
     </div>
 </div>
-<!--Holy day end-->
 
-    <!-- <div>
- 
-        {% for video in videos %}
-        <video width="500" height="500" controls >
-        <source src="{{video.video.url}}" type="video/mp4">
-        <b>{{video.title}}</b>
-        </video>
-         {% endfor %}
-    </div> -->
+ <!--About us-->
+ <div class="services-section bgwhite pt_80 pb_50">
+    <div class="container">
+       
+        <div class="row">
+            
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="image-tt pb_50">
+                    <img src="{{about.image.url}}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="headline pb_35">
+                    <p class="heading">About us</p>
+                    <h1>Who is TOMBI TRIP?</h1>
+                </div>
+                <div class="text">
+                    {{about.overview|safe}}
+                    <span class="quote-text"><a class="btn btn-primary quote-btn mt_10" href="over-camptoo.html" role="button">Learn more <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></span>
+                </div>
+            </div>
+         
+        </div>
+        
+    </div>
+</div>
+
 
 {% endblock %}
