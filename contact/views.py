@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
-from .models import Faq,Contact,Traveller,Ownercamper,Ownercaravan
+from .models import Faq,Contact,Traveller,Ownercamper,Ownercaravan,Ownerquote
 from django.contrib import messages
+from user.models import UserProfile
 
 # Create your views here.
 def ownercamper(request):
@@ -17,10 +18,14 @@ def ownercaravan(request):
   return render(request,'contact/ownercaravan.html',context)  
 def traveller(request):
   traveller = Traveller.objects.get()
+  quote = Ownerquote.objects.filter()
+  
   context = {
-    'traveller' :traveller
+    'traveller' :traveller,
+    'quote':quote
   }
   return render(request,'contact/traveller.html',context)
+
 
 def faq(request):
     faq = Faq.objects.all()

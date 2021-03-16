@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from ckeditor.fields import  RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.auth.models import User
 # Create your models here.
 class Traveller(models.Model):
     overview = RichTextUploadingField()
@@ -30,4 +31,13 @@ class Contact(models.Model):
     contact_date = models.DateTimeField(default=datetime.now, blank=True)
     user_id = models.IntegerField(blank=True)
     def __str__(self):
-        return self.name        
+        return self.name    
+
+class Ownerquote(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(blank=True,null=True,upload_to='photos/%Y/%m/%d/')
+    quote = models.TextField()
+    job_position = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.user.username
