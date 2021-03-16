@@ -323,11 +323,11 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="headline pb_35">
                     <p class="heading">About us</p>
-                    <h1>Who is TOMBI TRIP?</h1>
+                    <h1>{{about.title}}</h1>
                 </div>
                 <div class="text">
                     {{about.overview|safe}}
-                    <span class="quote-text"><a class="btn btn-primary quote-btn mt_10" href="over-camptoo.html" role="button">Learn more <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></span>
+                    <span class="quote-text"><a class="btn btn-primary quote-btn mt_10" href="{% url 'agents' %}" role="button">Learn more <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></span>
                 </div>
             </div>
          
