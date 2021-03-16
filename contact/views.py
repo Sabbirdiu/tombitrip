@@ -6,14 +6,18 @@ from user.models import UserProfile
 # Create your views here.
 def ownercamper(request):
   ownercamper = Ownercamper.objects.get()
+  quote = Ownerquote.objects.filter()
   context = {
-    'ownercamper' :ownercamper
+    'ownercamper' :ownercamper,
+    'quote':quote
   }
   return render(request,'contact/ownercamper.html',context)
 def ownercaravan(request):
   ownercaravan = Ownercaravan.objects.get()
+  quote = Ownerquote.objects.filter()
   context = {
-    'ownercaravan' :ownercaravan
+    'ownercaravan' :ownercaravan,
+    'quote':quote
   }
   return render(request,'contact/ownercaravan.html',context)  
 def traveller(request):
