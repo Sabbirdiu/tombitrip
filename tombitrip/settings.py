@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'user',
     'supply',
     'contact',
+    'listvehicle',
     # 3rd paty
     'crispy_forms',
     'ckeditor',

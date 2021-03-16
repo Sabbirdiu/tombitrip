@@ -32,9 +32,7 @@
                                         <li><a href="">For owners</a></li>
                                         <li><a href="">Messages</a></li>
                                         <li><a href="">My reservations</a></li>
-                                        <li><a href="">My reservations</a></li>
                                         <li><a href="">Resolution centre</a></li>
-                                        <li><a href="">Favorites</a></li>
                                         <li><a href="">Favorites</a></li>
                                         <li><a href="">My calender</a></li>
                                         <li><a href="{% url 'logout' %}">logout</a></li>
@@ -53,7 +51,7 @@
                             <li data-toggle="modal" data-target="#exampleModalsignup" data-whatever="@fat"><a href="{% url 'signup_form' %}">Sign up</a></li>
                             <li data-toggle="modal" data-target="#exampleModalsign" data-whatever="@mdo"><a href="{% url 'login_form' %}">Login</a></li>
                             <li class="header-contact-item quote">
-                                <span class="quote-text"><a class="btn btn-primary quote-btn" href="" role="button">List my vehicle</a></span>
+                                <span class="quote-text"><a class="btn btn-primary quote-btn" href="{% url 'listvehicle' %}" role="button">List my vehicle</a></span>
                             </li>
                             {% endif %}
                            
