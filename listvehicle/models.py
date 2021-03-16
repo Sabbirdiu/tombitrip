@@ -28,3 +28,9 @@ class Agents(models.Model):
     
     def __str__(self):
         return self.name
+class Easysafe(models.Model):
+    title = models.CharField(max_length=100)
+    overview = RichTextUploadingField()
+    image = models.ImageField(blank=True,null=True,upload_to='photos/%Y/%m/%d/') 
+    def __str__(self):
+        return self.title
