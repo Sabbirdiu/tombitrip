@@ -34,3 +34,9 @@ class Easysafe(models.Model):
     image = models.ImageField(blank=True,null=True,upload_to='photos/%Y/%m/%d/') 
     def __str__(self):
         return self.title
+class Message(models.Model):
+    title = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100)
+    image = models.ImageField(blank=True,null=True,upload_to='photos/%Y/%m/%d/') 
+    def __str__(self):
+        return self.title

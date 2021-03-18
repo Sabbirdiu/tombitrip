@@ -387,4 +387,28 @@
         </div>
         <!-- /container -->
     </div>
+
+      <!--contact us-->
+      <div class="problem-section bgf6 pt_80 pb_30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="image-tt pb_50">
+                        <img src=" {{message.image.url}}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="headline pb_35">
+                        <p class="heading">We are always here for you!</p>
+                        <h1>{{message.title}}</h1>
+                    </div>
+                    <div class="text">
+                        <a href="tel:+31 6 123456789" class="tt-phone">{{message.phone}}</a>
+                        <h4>Send us a message</h4>
+                        <span class="quote-text"><a class="btn btn-primary quote-btn mt_10" href="{% url 'contact' %}" role="button">Contact form <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
