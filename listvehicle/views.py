@@ -1,14 +1,17 @@
 from django.shortcuts import render
 from .models import Videos,About,Agents,Easysafe
+from contact.models import Faq
 # Create your views here.
 def listvehicle(request):
     videos = Videos.objects.all()
     about = About.objects.get()
     safe = Easysafe.objects.get()
+    faq = Faq.objects.all()
     context ={
         'videos':videos,
         'about':about,
         'safe':safe,
+        'faq' : faq,
     }
     return render(request,'listvehicle/listvehicle.html',context)
 

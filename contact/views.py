@@ -37,7 +37,7 @@ def faq(request):
         'faq' : faq,
     }
     return render(request,'contact/faq.html',context)
-
+ 
 def contact(request):
   if request.method == 'POST':
     name = request.POST['name']
