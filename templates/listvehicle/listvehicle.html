@@ -363,30 +363,61 @@
         
     </div>
 </div>
-
-    <!--faq area-->
-    <div class="section menu-horizontal container pt_50 pb_70">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-    
-                <div id="accordion">
-                    {% for rs in faq %}
-                        <h3>{{ rs.title }}</h3>
-                        <div>
-                            <p>
-                                {{ rs.description  }}
-                            </p>
-                        </div>
-                    {% endfor %}
+  <!--Just try it!-->
+  <div class="services-section bgf6 pt_80 pb_50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="headline pb_35">
+                    <p class="heading">Just try it!</p>
+                    <h1>Just try it!</h1>
                 </div>
-    
+                <div class="text">
+                    <h5 class="mb_30">Don't miss out on bookings, renters often book well in advance of the holiday periods. Start sharing your camping pleasure.</h5>
+                    <p>Create an advertisement free of obligation in less than 10 minutes, meet interested renters and decide for yourself who you are happy to hire your vehicle to. Do you want to give it a try?</p>
+                    <span class="quote-text"><a class="btn btn-primary quote-btn mt_10 mb_20" href="{% url 'supply' %}" role="button">Learn more <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></span>
+                </div>
             </div>
-            <!-- /row -->
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="image-tt pb_50">
+                    <img src=" {% static 'img/car-1.jpeg' %} " alt="">
+                </div>
+            </div>
         </div>
-        <!-- /container -->
     </div>
+</div>
+    <!--faq area-->
+    <!--faq area-->
+    <div class="faq-area bgwhite">
+        <div class="container menu-horizontal pt_80 pb_80">
+            <div class="row text-center">
+                <div class="col-12">
+                    <div class="headline pb_50">
+                        <p class="heading">We’ve got the answers</p>
+                        <h1>FAQs</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div id="accordion">
+                        {% for rs in faq %}
+                            <h3>{{ rs.title }}</h3>
+                            <div>
+                                <p>
+                                    {{ rs.description  }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+           
+
+        </div>
+    </div>
+   
 
       <!--contact us-->
       <div class="problem-section bgf6 pt_80 pb_30">
