@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+      <!--holyday start-->
+      <div class="holy-day-area pb_50 pt_80 ">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <div class="headline pb_50">
+                        <p class="heading">Experience</p>
+                        <h1>Experience amazing camping holidays</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row holy-day-carousl owl-carousel">
+          
+                {% for exp in exp %}
+                <!-- item-->
+                <div class="item mb_30">
+                    <div class="holy-day-item text-center">
+                        <div class="photo-in">
+                            <div class="photo">
+                                <img src="{{exp.image.url}}" alt="">
+                                <div class="social-group">
+                                    <a href="#">More info</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <h5><a href="">{{exp.title_keyword}}</a></h5>
+                        </div>
+                    </div>
+                </div>
+
+               {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+    <!--Holy day end-->
+{% endblock %}

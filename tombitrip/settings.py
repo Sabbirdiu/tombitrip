@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'supply',
     'contact',
     'listvehicle',
+    'home',
     # 3rd paty
     'crispy_forms',
     'ckeditor',
