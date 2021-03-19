@@ -22,12 +22,12 @@
                             <div class="photo">
                                 <img src="{{exp.image.url}}" alt="">
                                 <div class="social-group">
-                                    <a href="#">More info</a>
+                                    <a href="{{ exp.get_absolute_url }}">More info</a>
                                 </div>
                             </div>
                         </div>
                         <div class="text">
-                            <h5><a href="">{{exp.title_keyword}}</a></h5>
+                            <h5><a href="{{ exp.get_absolute_url }}">{{exp.title_keyword}}</a></h5>
                         </div>
                     </div>
                 </div>
