@@ -19,9 +19,9 @@ urlpatterns = [
 
 
     # local 
+    path('search/',search,name='search'),
     path('signup/',userviews.signup_form, name='signup_form'),
     path('login/',userviews.login_form, name='login_form'),
-    path('find/',search,name='search'),
     path('logout/',userviews.logout_func, name='logout'),
     path('update/', userviews.user_update,name='user_update'),
 ]
