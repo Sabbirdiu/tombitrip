@@ -2,7 +2,9 @@ from django.db import models
 from ckeditor.fields import  RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.urls import reverse
+from datetime import datetime
 # Create your models here.
 class Experience(models.Model):
     title_keyword = models.CharField(max_length=100)
@@ -21,3 +23,41 @@ class Experience(models.Model):
         return reverse('exp-details', kwargs={
             'slug': self.slug
         })    
+
+class Supply(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=150)
+    car_title =  models.CharField(max_length=150)
+    city =  models.CharField(max_length=150)
+    price =  models.IntegerField()
+    main_photo =  models.ImageField(upload_to='photos/%Y/%m/%d/') 
+    image1 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image2 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image3 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image4 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image5 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image6 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image7 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image8 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image9 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image10 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image11 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image12 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image13 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image14 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image15 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image16 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    image17=  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    seats =  models.IntegerField()
+    bearth =  models.IntegerField()
+    features = RichTextUploadingField()
+    description = RichTextUploadingField()
+    failities = RichTextUploadingField()
+    houserules = RichTextUploadingField()
+    min_reserver_period = models.IntegerField()
+    pick_up_from = models.DateTimeField(default=datetime.now, blank=True)
+    drop_of_before = models.DateTimeField(default=datetime.now, blank=True)
+    favourite = models.ManyToManyField(User,related_name='favourite',blank=True)
+    is_published = models.BooleanField(default=True)
+    def __str__(self):
+        return self.title
