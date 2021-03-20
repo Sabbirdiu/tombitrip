@@ -1,6 +1,171 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+   <!--Slider start-->
+   <div class="slider-area pb_80 pt_250 xs_pt_80" style="background-image: url(img/slide5.jpg)">
+    <div class="container" style="max-width: 1220px;">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="slide-h">
+                    <h1>Hire your perfect campervan close to home</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="booking-form">
+                    <form action="form-slide">
+                        <div class="row">
+                            <div class="col-lg-3 col-12">
+                                <span class="form-group-headin">Travel dates</span>
+                                <div class="form-groups">
+                                    <input type="search" id="address" class="form-control" placeholder="Where are we going?" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-12">
+                                <span class="form-group-headin">Travel dates</span>
+                                <div class="row">
+
+                                    <div class="col-6">
+                                        <div class="form-groups datett">
+                                            <input type="text" id="datepicker1" name="Pick_up" placeholder="Pick up" />
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-groups datett">
+                                            <input type="text" id="datepicker2" name="drop_off" placeholder="Drop off" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-12">
+                                <span class="form-group-headin">Travel dates</span>
+                                <div class="form-groups">
+                                    <select class="js-example-basic-single" name="state">
+                                        <option value="OF">Select person</option>
+                                        ...
+                                        <option value="WY">1 person</option>
+                                        <option value="WY">2 persons</option>
+                                        <option value="WY">3 persons</option>
+                                        <option value="WY">4 persons</option>
+                                        <option value="WY">5 persons</option>
+                                        <option value="WY">6 persons</option>
+                                        <option value="WY">7 persons</option>
+                                        <option value="WY">8 persons</option>
+                                        <option value="WY">9 persons</option>
+                                        <option value="WY">10 persons</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-12">
+                                <div class="form-groups">
+                                    <button type="submit" class="btn btn-primary booking-btn xs_mt_10" name="form1"><i class="fa fa-search" aria-hidden="true"></i> Rental vehicles</button>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="checkbox-tt  color-white">
+                                    <label for="flexible-d-tt">
+                                        <input type="checkbox" name="name3" id="idname3" value="1"> Search for flexible dates
+                                    </label>
+                                    <span>
+                                        <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi voluptates libero voluptatum. Quaerat quae in soluta perspiciatis earum!" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Slider end-->
+
+<!--Review area-->
+<div class="star-review-area text-center">
+    <div class="review">
+        <ul>
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+            <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+            <li class="color-white">Rating:9.0 out of</li>
+            <li><a href="">25536 experiences</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--   Services start-->
+<div class="services-section pt_50 pb_20 text-center">
+    <div class="container">
+        <div class="row">
+
+            <!--Services item-->
+            <div class="col-lg-2-5-tt col-md-4 col-sm-6 col-12">
+                <div class="item mb_30">
+                    <div class="icon">
+                        <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        Wide supply of private campervans, motorhomes and caravans
+                    </div>
+                </div>
+            </div>
+
+            <!--Services item-->
+            <div class="col-lg-2-5-tt col-md-4 col-sm-6 col-12">
+                <div class="item mb_30">
+                    <div class="icon">
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        Properly insured campervans
+                    </div>
+                </div>
+            </div>
+
+            <!--Services item-->
+            <div class="col-lg-2-5-tt col-md-4 col-sm-6 col-12">
+                <div class="item mb_30">
+                    <div class="icon">
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        24/7 support
+                    </div>
+                </div>
+            </div>
+
+            <!--Services item-->
+            <div class="col-lg-2-5-tt col-md-4 col-sm-6 col-12">
+                <div class="item mb_30">
+                    <div class="icon">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        Hire a campervan anywhere in Europe or Australia
+                    </div>
+                </div>
+            </div>
+
+            <!--Services item-->
+            <div class="col-lg-2-5-tt col-md-4 col-sm-6 col-12">
+                <div class="item mb_30">
+                    <div class="icon">
+                        <i class="fa fa-gbp" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        Vehicles for any budget
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Services start-->
       <!--holyday start-->
       <div class="holy-day-area pb_50 pt_80 ">
         <div class="container">
