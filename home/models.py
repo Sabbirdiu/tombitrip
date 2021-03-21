@@ -61,3 +61,5 @@ class Supply(models.Model):
     is_published = models.BooleanField(default=True)
     def __str__(self):
         return self.title
+    def get_absolute_url(self):
+        return reverse('home')    

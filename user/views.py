@@ -50,7 +50,7 @@ def login_form(request):
            
 
             # Redirect to a success page.
-            return HttpResponseRedirect('/blog')
+            return HttpResponseRedirect('/blog/blog')
         else:
             messages.warning(request,"Login Error !! Username or Password is incorrect")
             return HttpResponseRedirect('/login')
