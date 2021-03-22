@@ -1,8 +1,10 @@
 from django.shortcuts import render,get_object_or_404,HttpResponseRedirect
-from .models import Experience,Supply
+from .models import Experience,Supply,Rating,CommentForm
 from django.contrib.auth import get_user_model
 from listvehicle.models import About,Agents
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 # Create your views here.
 @ login_required
 def favourite_list(request):
@@ -39,6 +41,16 @@ def index(request):
         'is_favourite':is_favourite
     }
     return render(request,'home/home.html',context)
+def supply_details(request,slug,id):
+    supply = Supply.objects.get(pk=id,slug=slug)
+    comments = Rating.objects.filter(supply_id=id,status='True')
+
+    context ={
+        'supply':supply,
+        'comments':comments
+    }
+    return render(request,'home/supply_details.html',context)    
+
 def exp_details(request,slug):
     exp = get_object_or_404(Experience,slug=slug) 
     about = About.objects.get()
@@ -50,3 +62,22 @@ def exp_details(request,slug):
     }
     return render(request,'home/details.html',context)
         
+def addcomment(request,id):
+   url = request.META.get('HTTP_REFERER')  # get last url
+   #return HttpResponse(url)
+   if request.method == 'POST':  # check post
+      form = CommentForm(request.POST)
+      if form.is_valid():
+         data = Rating()  # create relation with model
+         data.subject = form.cleaned_data['subject']
+         data.comment = form.cleaned_data['comment']
+         data.rate = form.cleaned_data['rate']
+         data.ip = request.META.get('REMOTE_ADDR')
+         data.supply_id=id
+         current_user= request.user
+         data.user_id=current_user.id
+         data.save()  # save data to table
+         messages.success(request, "Your review has ben sent. Thank you for your interest.")
+         return HttpResponseRedirect(url)
+
+   return HttpResponseRedirect(url)  
