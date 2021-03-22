@@ -15,7 +15,7 @@ def favourite_list(request):
                   'home/favourites.html',context)
 
 
-@ login_required
+@ login_required(login_url='/login')
 def favourite(request,id):
     supply = get_object_or_404(Supply,id=id)
     if supply.favourite.filter(id=request.user.id).exists():

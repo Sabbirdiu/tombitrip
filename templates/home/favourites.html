@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<style>
+    .carddj {
+        overflow: hidden;
+        padding: 15px;
+    }
+
+    .font-bold.tt-product-head a,
+    .right.save a{
+        color: #000;
+        text-decoration: none;
+    }
+    .font-bold.tt-product-head a:hover,
+    .right.save a:hover{
+        color: #f04b0f;
+    }
+</style>
+
   <!--vehicles-area start-->
   <div class="vehicles-area pt_80 pb_80">
     <div class="container">
@@ -47,13 +64,13 @@
                                                     <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{supply.city}}</li>
                                                 </ul>
                                             </div> 
-                                            {% if request.user.is_authenticated %}
                                             {% if is_favourite %}
-                                            <a class="right save" href="{% url 'favourite' supply.id %}"><i class="fa fa-heart" ></i> Save</a>
-                                            {% else %}
-                                            <a class="right save" href="{% url 'favourite' id=supply.id %}"><i class="far fa-heart" ></i>not Save</a>
-                                            {% endif %}
-                                            {% endif %}
+                                        </div> <span class="right save"><a href="{% url 'favourite' supply.id %}"><i class="fa fa-heart" aria-hidden="true"></i> Save</a></span>
+                                                   
+                                        {% else %}
+                                    </div> <span class="right save"><a href="{% url 'favourite' supply.id %}"><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> Save</a></span>
+                                       
+                                        {% endif %}
                                         </li>
                                     </ul>
                                 </div>

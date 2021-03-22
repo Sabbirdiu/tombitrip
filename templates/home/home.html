@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<style>
+    .carddj {
+        overflow: hidden;
+        padding: 15px;
+    }
+
+    .font-bold.tt-product-head a,
+    .right.save a{
+        color: #000;
+        text-decoration: none;
+    }
+    .font-bold.tt-product-head a:hover,
+    .right.save a:hover{
+        color: #f04b0f;
+    }
+</style>
+
    <!--Slider start-->
    <div class="slider-area pb_80 pt_250 xs_pt_80" style="background-image: url(img/slide5.jpg)">
     <div class="container" style="max-width: 1220px;">
@@ -229,7 +246,7 @@
                                     <div class="text">
                                         <div class="list">
                                             <ul>
-                                                <li class="font-bold tt-product-head">{{supply.title}} <span class="right">
+                                                <li class="font-bold tt-product-head"><a href="">{{supply.title}}</a> <span class="right">
                                                         <div class="review">
                                                             <ul>
                                                                 <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -250,13 +267,15 @@
                                                             <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{supply.city}}</li>
                                                         </ul>
                                                     </div> 
-                                                    {% if request.user.is_authenticated %}
+                                                    
                                                     {% if is_favourite %}
-                                                    <a class="right save" href="{% url 'favourite' supply.id %}"><i class="fa fa-heart fa-lg" ></i> Save</a>
+                                                </div> <span class="right save"><a href="{% url 'favourite' supply.id %}"><i class="fa fa-heart" aria-hidden="true"></i> Save</a></span>
+                                                   
                                                     {% else %}
-                                                    <a class="right save" href="{% url 'favourite' id=supply.id %}"><i class="far fa-heart fa-lg" ></i>not Save</a>
+                                                </div> <span class="right save"><a href="{% url 'favourite' supply.id %}"><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> Save</a></span>
+                                                   
                                                     {% endif %}
-                                                    {% endif %}
+                                                   
                                                 </li>
                                             </ul>
                                         </div>

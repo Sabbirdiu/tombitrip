@@ -62,7 +62,7 @@ def logout_func(request):
     # if translation.LANGUAGE_SESSION_KEY in request.session:
     #     del request.session[translation.LANGUAGE_SESSION_KEY]
     #     del request.session['currency']
-    return HttpResponseRedirect('/blog')    
+    return HttpResponseRedirect('/login')    
 
 @login_required(login_url='/login') # Check login
 def user_profile(request):
