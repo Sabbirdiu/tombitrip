@@ -15,7 +15,7 @@
                         <ul id="nav">
                            
                             {% if user.id is not None %}
-                            <li><a href="">Rent out your vehicle</a></li>
+                            <li><a href="{% url 'supply' %}">Rent out your vehicle</a></li>
                             <li><a href="{% url 'blog' %}">Blog</a></li>
                                 <li><a href="">Messages</a></li>
                                 <li><a href="">Help <span class="caret"></span></a>

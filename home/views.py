@@ -24,7 +24,7 @@ def favourite(request,id):
         supply.favourite.remove(request.user)
     else:
         supply.favourite.add(request.user)
-    return HttpResponseRedirect(supply.get_absolute_url())        
+    return HttpResponseRedirect('/favourites')        
 
 def index(request):
     exp = Experience.objects.all()
@@ -41,6 +41,17 @@ def index(request):
         'is_favourite':is_favourite
     }
     return render(request,'home/home.html',context)
+def supply(request):
+    supply = Supply.objects.all()
+    sup = Supply.objects.get()
+    is_favourite = False
+    if sup.favourite.filter(id=request.user.id).exists():
+        is_favourite = True
+    context = {
+        'supply' :supply,
+        'is_favourite':is_favourite
+    }    
+    return render(request,'home/supply.html',context)    
 def supply_details(request,slug,id):
     supply = Supply.objects.get(pk=id,slug=slug)
     comments = Rating.objects.filter(supply_id=id,status='True')
