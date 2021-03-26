@@ -4,6 +4,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from blog.views import search
+from home import views as homeviews
 # local
 from user import views as userviews
 urlpatterns = [
@@ -20,6 +21,7 @@ urlpatterns = [
 
     # local 
     path('search/',search,name='search'),
+    path('supplysearch/',homeviews.supplysearch,name='supplysearch'),
     path('signup/',userviews.signup_form, name='signup_form'),
     path('login/',userviews.login_form, name='login_form'),
     path('logout/',userviews.logout_func, name='logout'),

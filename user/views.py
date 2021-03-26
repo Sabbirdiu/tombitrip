@@ -27,7 +27,7 @@ def signup_form(request):
             return HttpResponseRedirect('/login')
         else:
             messages.warning(request,form.errors)
-            return HttpResponseRedirect('/login')
+            return HttpResponseRedirect('/signup')
 
 
     form = SignUpForm()
@@ -50,7 +50,8 @@ def login_form(request):
            
 
             # Redirect to a success page.
-            return HttpResponseRedirect('/blog/blog')
+            messages.success(request, 'Wellcome to our website, Please Update your profile')
+            return HttpResponseRedirect('/user/profile')
         else:
             messages.warning(request,"Login Error !! Username or Password is incorrect")
             return HttpResponseRedirect('/login')

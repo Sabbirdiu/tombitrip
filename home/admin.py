@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Experience,Supply,Rating
+from .models import Experience,Supply,Rating,Cartypes,ProductAttribute
 # Register your models here.
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug')
@@ -14,3 +14,5 @@ class CommentAdmin(admin.ModelAdmin):
 admin.site.register(Experience,ArticleAdmin)
 admin.site.register(Supply,SupplyAdmin)
 admin.site.register(Rating,CommentAdmin) 
+admin.site.register(Cartypes) 
+admin.site.register(ProductAttribute) 

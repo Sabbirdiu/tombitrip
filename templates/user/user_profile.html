@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+<script>
+    $(document).ready(function() {
+        // messages timeout for 10 sec 
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 3000); // <-- time in milliseconds, 1000 =  1 sec
+    });
+</script>
  <!--banner area start-->
  <div class="banner-area" style="background-image: url('{% static 'img/slide5.jpg' %}')">
     <div class="overlay"></div>
@@ -30,6 +37,14 @@
 <!--Dashboard start-->
 <div class="dashboard-content pt_80 pb_80">
     <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{ message }}
+               
+            </div> 
+        {% endfor %}
+    {% endif %}
         <div class="row move-dashboard">
           <!-- add partial sidebar -->
                   {% include 'user/sidebar.html' %}

@@ -248,17 +248,15 @@
                                             <ul>
                                                 <li class="font-bold tt-product-head"><a href=" {% url 'supply-details' supply.id supply.slug %} ">{{supply.title}}</a> <span class="right">
                                                         <div class="review">
-                                                            <ul>
-                                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                                <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-                                                            </ul>
+                                                            <i class="fa fa-star{% if supply.avaregereview < 1%}-o empty{% endif%}"></i>
+                                                                <i class="fa fa-star{% if supply.avaregereview < 2%}-o empty{% endif%}"></i>
+                                                                <i class="fa fa-star{% if supply.avaregereview < 3%}-o empty{% endif%}"></i>
+                                                                <i class="fa fa-star{% if supply.avaregereview < 4%}-o empty{% endif%}"></i>
+                                                                <i class="fa fa-star{% if supply.avaregereview < 5%}-o empty{% endif%}"></i> {{ supply.avaregereview}}/{{ supply.countreview}}
                                                         </div>
                                                     </span>
                                                 </li>
-                                                <li class="li-middle">from €{{supply.price}} per night <span class="right">(3)</span></li>
+                                                <li class="li-middle">from €{{supply.price}} per night <span class="right"></span></li>
                                                 <li>
                                                     <div class="review r-bottom">
                                                         <ul>
@@ -267,14 +265,7 @@
                                                             <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{supply.city}}</li>
                                                         </ul>
                                                     </div> 
-                                                    
-                                                    {% if is_favourite %}
-                                                </div> <span class="right save"><a href="{% url 'favourite' supply.id %}"><i class="fa fa-heart" aria-hidden="true"></i> Save</a></span>
-                                                   
-                                                    {% else %}
-                                                </div> <span class="right save"><a href="{% url 'favourite' supply.id %}"><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> Save</a></span>
-                                                   
-                                                    {% endif %}
+                                             
                                                    
                                                 </li>
                                             </ul>
@@ -287,6 +278,8 @@
                             </div>
                         </div>
                     </div>
+                    {% empty %}
+                    <h1>No List</h1>
                     {% endfor %}
     
                    
@@ -295,10 +288,55 @@
                 </div>
                 <div class="row">
                     <div class="col-12 mt_50 text-center">
-                        <span class="quote-text"><a class="btn btn-primary quote-btn" href="contact.html" role="button">View all vehicles</a></span>
+                        <span class="quote-text"><a class="btn btn-primary quote-btn" href="{% url 'supply' %}" role="button">View all vehicles</a></span>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="testimonial-2-area bgwhite pt_80 pb_80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="headline pb_40 text-center">
+                            <p class="heading">Testimonial </p>
+                            <h1>SEE OUR CLIENT FEEDBACK</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="testimonial-2 owl-carousel">
+                            {% for quote in quote %}
+                            <div class="item">
+                                <div class="customer-say">
+                                    <div class="icon">
+                                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>{{quote.quote}}</p>
+                                    </div>
+                                </div>
+                                
     
+                                <div class="man-name">
+                                    {% if quote.image %}
+    
+                                    <div class="photo">
+                                        <img src="{{ quote.image.url }}" alt="img">
+                                    </div>
+                                    {% endif %}
+                                    <div class="text">
+                                        <h5>{{quote.user}}</h5>
+                                        <span>{{quote.job_position}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                           
+                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 {% endblock %}

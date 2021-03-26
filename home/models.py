@@ -7,6 +7,8 @@ from django.urls import reverse
 from datetime import datetime
 from django.utils import timezone
 from django.forms import ModelForm
+from django.db.models import Avg, Count
+
 # Create your models here.
 
 class Experience(models.Model):
@@ -26,9 +28,15 @@ class Experience(models.Model):
         return reverse('exp-details', kwargs={
             'slug': self.slug
         })    
+class Cartypes(models.Model):
+    title = models.CharField(max_length=20)
+    slug = models.SlugField(null=False, unique=True)
 
+    def __str__(self):
+        return self.title
 class Supply(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    cartypes  = models.ManyToManyField(Cartypes)
     title = models.CharField(max_length=150)
     slug = models.SlugField(null=False, unique=True)
     car_title =  models.CharField(max_length=150)
@@ -56,7 +64,7 @@ class Supply(models.Model):
     bearth =  models.IntegerField()
     features = RichTextUploadingField()
     description = RichTextUploadingField()
-    failities = RichTextUploadingField()
+    failities = RichTextUploadingField() 
     houserules = RichTextUploadingField()
     min_reserver_period = models.IntegerField()
     pick_up_from = models.TimeField(blank=True)
@@ -66,15 +74,32 @@ class Supply(models.Model):
     def __str__(self):
         return self.title
     def get_absolute_url(self):
-        return reverse('home')    
+        return reverse('/home')    
+    def avaregereview(self):
+        reviews = Rating.objects.filter(supply=self, status='True').aggregate(avarage=Avg('rate'))
+        avg=0
+        if reviews["avarage"] is not None:
+            avg=float(reviews["avarage"])
+        return avg
 
+    def countreview(self):
+        reviews = Rating.objects.filter(supply=self, status='True').aggregate(count=Count('id'))
+        cnt=0
+        if reviews["count"] is not None:
+            cnt = int(reviews["count"])
+        return cnt        
     # def get_absolute_url(self):
-    #     return reverse('supply-details', kwargs={
+    #     return reverse('/home', kwargs={
     #         'slug': self.slug
     #     })   
     # def get_absolute_url(self):
     #     return reverse('supply-details',kwargs={'pk':self.pk})    
-
+class ProductAttribute(models.Model):
+    supply=models.ForeignKey(Supply,on_delete=models.CASCADE)
+    price=models.PositiveIntegerField(default=0)
+   
+    def __str__(self):
+        return self.supply.title
 class Rating(models.Model):
     STATUS = (
         ('New', 'New'),

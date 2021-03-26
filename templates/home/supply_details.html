@@ -8,52 +8,101 @@
     
     
     
-    
-    
+      
+  /*----------------------------*\
+      Inputs
+  \*----------------------------*/
+  
+  .input {
+    width: 100%;
+    height: 40px;
+    padding: 0px 15px;
+    border: none;
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 1px #DADADA inset, 0px 0px 0px 5px transparent;
+    box-shadow: 0px 0px 0px 1px #DADADA inset, 0px 0px 0px 5px transparent;
+    -webkit-transition: 0.3s all;
+    transition: 0.3s all;
+  }
+  
+  .input:focus {
+    -webkit-box-shadow: 0px 0px 0px 1px #F8694A inset, 0px 0px 0px 0px #F8694A;
+    box-shadow: 0px 0px 0px 1px #F8694A inset, 0px 0px 0px 0px #F8694A;
+  }
+  
+  textarea.input {
+    padding: 15px;
+  }
+  
+  .input-checkbox .caption {
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: 0.3s max-height;
+    transition: 0.3s max-height;
+  }
+  
+  .input-checkbox>label {
+    color: #30323A;
+  }
+  
+  .input-checkbox input[type="checkbox"]:checked+label+.caption, .input-checkbox input[type="radio"]:checked+label+.caption {
+    max-height: 800px;
+  }
+  
+    /*-- review form --*/
+
+.review-form textarea.input {
+  height: 90px;
+}
+
+.review-form .input-rating .stars {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.review-form .input-rating .stars input[type="radio"] {
+  display: none;
+}
+
+.review-form .input-rating .stars>label {
+  float: right;
+  cursor: pointer;
+  padding: 0px 3px;
+  margin: 0px;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.review-form .input-rating .stars>label:hover, .review-form .input-rating .stars>label:hover~label {
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+.review-form .input-rating .stars>label:before {
+  content: "\f006";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  color: #DADADA;
+  font-size: 14px;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.review-form .input-rating .stars>label:hover:before, .review-form .input-rating .stars>label:hover~label:before {
+  content: "\f005";
+  color: #FFB656;
+}
+
+.review-form .input-rating .stars>input:checked label:before, .review-form .input-rating .stars>input:checked~label:before {
+  content: "\f005";
+  color: #FFB656;
+}
     
     
 
-/*Single Product
-===========================*/
-*{
-    margin: 0;
-    padding: 0;
-}
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
+
 .single-product-page {
     padding-top: 20px;
     padding-bottom: 50px;
@@ -508,40 +557,8 @@ ul.product-meta-list li a:hover {
                     </ul>
                 </div>
             </div>
-            <div class="col-md-5 col-sm-6">
-
-                <div class="sidebar-item mb_30 mt_30 display-inline-tt">
-                    <div class="sidebar-title">
-                        <h5>Travel dates</h5>
-                    </div>
-                    <div class="sidebar-body">
-                        <form action="">
-                            <div class="form-groups datett">
-                                <input type="text" id="datepicker1" name="Pick_up" placeholder="Pick up" />
-                            </div>
-                            <label for="flexible-d-tt">
-                                <input type="checkbox" name="" id="" value="1"> Search for flexible dates
-                            </label>
-                            <span>
-                                <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi voluptates libero voluptatum. Quaerat quae in soluta perspiciatis earum!" aria-hidden="true"></i>
-                            </span>
-                            <br>
-                            <span class="quote-text"><a class="btn btn-primary quote-btn" href="list-my-vehicle.html" role="button">Request reservation</a></span>
-                        </form>
-
-                        <div class="footer-social-list mb_15 mt_25">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+          <!-- right filter -->
+          {% include 'home/right_filter.html' %}
             <div class="col-md-12">
 
                 <div class="course-tab product-tab pt_50">
@@ -553,7 +570,7 @@ ul.product-meta-list li a:hover {
                             <a id="tab-B" href="#pane-B" class="move-p-description-title" data-toggle="tab" role="tab">Availability</a>
                         </li>
                         <li class="nav-item">
-                            <a id="tab-C" href="#pane-C" class="move-p-description-title" data-toggle="tab" role="tab">9 Ratings</a>
+                            <a id="tab-C" href="#pane-C" class="move-p-description-title" data-toggle="tab" role="tab"> ({{ supply.countreview}} ) Ratings</a>
                         </li>
                         <li class="nav-item">
                             <a id="tab-D" href="#pane-D" class="move-p-description-title" data-toggle="tab" role="tab">Description</a>
@@ -571,22 +588,23 @@ ul.product-meta-list li a:hover {
                         </div>
 
                         <div id="pane-C" class="move-p-description card card tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
-
+                            {% for rs in comments %}
                             <div class="item-s-rating border-bottom mb_30">
                                 <div class="man-name">
                                     <div class="photo">
                                         <img src="img/t1.jpg" alt="">
                                     </div>
                                     <div class="text">
-                                        <h5>Rasel Reja</h5>
+                                        <h5>{{rs.user.username}}</h5>
+                                        <h6> {{ rs.create_at}}</h6>
                                         <span class="rating-stars" itemprop="ratingValue" content="5.0">
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
+                                            <i class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}"></i>
+                                                        <i class="fa fa-star{% if rs.rate < 2 %}-o empty{% endif %}"></i>
+                                                        <i class="fa fa-star{% if rs.rate < 3 %}-o empty{% endif %}"></i>
+                                                        <i class="fa fa-star{% if rs.rate < 4 %}-o empty{% endif %}"></i>
+                                                        <i class="fa fa-star{% if rs.rate < 5 %}-o empty{% endif %}"></i>
                                         </span> <br>
-                                        <span>Lorem ipsum dolor sit amet</span>
+                                        <span>{{rs.subject}}</span>
                                     </div>
                                 </div>
                                 <div class="customer-say mt_20">
@@ -594,66 +612,40 @@ ul.product-meta-list li a:hover {
                                         <i class="fa fa-quote-right" aria-hidden="true"></i>
                                     </div>
                                     <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere architecto ad laudantium quis dolorum cumque minus laborum qui! Dolorum animi inventore nulla laudantium sed soluta eos fugit qui doloremque omnis.</p>
+                                        <p>{{rs.comment}}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item-s-rating border-bottom mb_30">
-                                <div class="man-name">
-                                    <div class="photo">
-                                        <img src="img/t1.jpg" alt="">
-                                    </div>
-                                    <div class="text">
-                                        <h5>Rasel Reja</h5>
-                                        <span class="rating-stars" itemprop="ratingValue" content="5.0">
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                        </span> <br>
-                                        <span>Lorem ipsum dolor sit amet</span>
+                            {% endfor %}
+                            <form class="review-form" action="{% url 'addcomment' supply.id %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input name="subject" class="input" type="text" placeholder="Your subject" />
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="comment" class="input" placeholder="Your review"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-rating">
+                                        <strong class="text-uppercase">Your Rating: </strong>
+                                        <div class="stars">
+                                            <input type="radio" id="star5" name="rate" value="5" /><label for="star5"></label>
+                                            <input type="radio" id="star4" name="rate" value="4" /><label for="star4"></label>
+                                            <input type="radio" id="star3" name="rate" value="3" /><label for="star3"></label>
+                                            <input type="radio" id="star2" name="rate" value="2" /><label for="star2"></label>
+                                            <input type="radio" id="star1" name="rate" value="1" /><label for="star1"></label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="customer-say mt_20">
-                                    <div class="icon">
-                                        <i class="fa fa-quote-right" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere architecto ad laudantium quis dolorum cumque minus laborum qui! Dolorum animi inventore nulla laudantium sed soluta eos fugit qui doloremque omnis.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-s-rating border-bottom mb_30">
-                                <div class="man-name">
-                                    <div class="photo">
-                                        <img src="img/t1.jpg" alt="">
-                                    </div>
-                                    <div class="text">
-                                        <h5>Rasel Reja</h5>
-                                        <span class="rating-stars" itemprop="ratingValue" content="5.0">
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                            <i class="fa fa-star" data-value="1"></i>
-                                        </span> <br>
-                                        <span>Lorem ipsum dolor sit amet</span>
-                                    </div>
-                                </div>
-                                <div class="customer-say mt_20">
-                                    <div class="icon">
-                                        <i class="fa fa-quote-right" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere architecto ad laudantium quis dolorum cumque minus laborum qui! Dolorum animi inventore nulla laudantium sed soluta eos fugit qui doloremque omnis.</p>
-                                    </div>
-                                </div>
-                            </div>
-
+                                {% if user.id is not None %}
+                                    <button class="btn quote-text btn btn-success quote-btn ">Submit</button>
+                                {% else %}
+                                    You must be logged in to post a review
+                                {% endif %}
+                            </form>
                         </div>
                         <div id="pane-D" class="move-p-description card card tab-pane fade" role="tabpanel" aria-labelledby="tab-D">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores pariatur nostrum quisquam nulla temporibus voluptates, ipsa molestias commodi quos maxime vitae eaque incidunt minima adipisci, vero sunt consequuntur tempora illum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores pariatur nostrum quisquam nulla temporibus voluptates, ipsa molestias commodi quos maxime vitae eaque incidunt minima adipisci, vero sunt consequuntur tempora illum.
+                           {{supply.description|safe}}
                         </div>
 
                     </div>
@@ -682,43 +674,41 @@ ul.product-meta-list li a:hover {
             </div>
         </div>
         <div class="row">
-
+        {% for supply in supply_list %}
             <div class="col-lg-4 col-md-6 col-12 related-pro-owl owl-carousel mb_80">
                 <div class="vehicles-item supply-details-item">
                     <div class="photo-list owl-carousel">
-                        <img src="img/car-4.jpeg" alt="">
-                        <img src="img/car-5.jpeg" alt="">
-                        <img src="img/car-6.jpeg" alt="">
+                        <img src="{{supply.main_photo.url}}" alt="">
+                        <img src="{{supply.image1.url}}" alt="">
+                        <img src="{{supply.image2.url}}" alt="">
                     </div>
                     <div class="more-info supply-details-item-more">
-                        <a href="single-product.html">More info</a>
+                        <a href="{% url 'supply-details' supply.id supply.slug %}">More info</a>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <div class="text">
                                 <div class="list">
                                     <ul>
-                                        <li class="font-bold tt-product-head">Camper van Peter en Jo... <span class="right">
-                                                <div class="review">
-                                                    <ul>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-                                                    </ul>
-                                                </div>
+                                        <li class="font-bold tt-product-head">{{supply.title}}<span class="right">
+                                            <div class="review">
+                                                <i class="fa fa-star{% if supply.avaregereview < 1%}-o empty{% endif%}"></i>
+                                                    <i class="fa fa-star{% if supply.avaregereview < 2%}-o empty{% endif%}"></i>
+                                                    <i class="fa fa-star{% if supply.avaregereview < 3%}-o empty{% endif%}"></i>
+                                                    <i class="fa fa-star{% if supply.avaregereview < 4%}-o empty{% endif%}"></i>
+                                                    <i class="fa fa-star{% if supply.avaregereview < 5%}-o empty{% endif%}"></i> {{ supply.avaregereview}}/{{ supply.countreview}}
+                                            </div>
                                             </span>
                                         </li>
-                                        <li class="li-middle">from €100 per night <span class="right">(3)</span></li>
+                                        <li class="li-middle">from €{{supply.price}} per night <span class="right"></span></li>
                                         <li>
                                             <div class="review r-bottom supply-details">
                                                 <ul>
-                                                    <li><img src="img/icon/icon-man.png" alt="">6</li>
-                                                    <li><i class="fa fa-bed" aria-hidden="true"></i> 4</li>
-                                                    <li><i class="fa fa-map-marker" aria-hidden="true"></i> Zamslag</li>
+                                                    <li><img src="img/icon/icon-man.png" alt="">{{supply.seats}}</li>
+                                                    <li><i class="fa fa-bed" aria-hidden="true"></i> {{supply.bearth}}</li>
+                                                    <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{supply.city}}</li>
                                                 </ul>
-                                            </div> <span class="right save"><i class="fa fa-heart" aria-hidden="true"></i> Save</span>
+                                            </div> 
                                         </li>
                                     </ul>
                                 </div>
@@ -730,100 +720,7 @@ ul.product-meta-list li a:hover {
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12 related-pro-owl owl-carousel mb_80">
-                <div class="vehicles-item supply-details-item">
-                    <div class="photo-list owl-carousel">
-                        <img src="img/car-4.jpeg" alt="">
-                        <img src="img/car-5.jpeg" alt="">
-                        <img src="img/car-6.jpeg" alt="">
-                    </div>
-                    <div class="more-info supply-details-item-more">
-                        <a href="single-product.html">More info</a>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="text">
-                                <div class="list">
-                                    <ul>
-                                        <li class="font-bold tt-product-head">Camper van Peter en Jo... <span class="right">
-                                                <div class="review">
-                                                    <ul>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </span>
-                                        </li>
-                                        <li class="li-middle">from €100 per night <span class="right">(3)</span></li>
-                                        <li>
-                                            <div class="review r-bottom supply-details">
-                                                <ul>
-                                                    <li><img src="img/icon/icon-man.png" alt="">6</li>
-                                                    <li><i class="fa fa-bed" aria-hidden="true"></i> 4</li>
-                                                    <li><i class="fa fa-map-marker" aria-hidden="true"></i> Zamslag</li>
-                                                </ul>
-                                            </div> <span class="right save"><i class="fa fa-heart" aria-hidden="true"></i> Save</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!--bottom box link here-->
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 related-pro-owl owl-carousel mb_80">
-                <div class="vehicles-item supply-details-item">
-                    <div class="photo-list owl-carousel">
-                        <img src="img/car-4.jpeg" alt="">
-                        <img src="img/car-5.jpeg" alt="">
-                        <img src="img/car-6.jpeg" alt="">
-                    </div>
-                    <div class="more-info supply-details-item-more">
-                        <a href="single-product.html">More info</a>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="text">
-                                <div class="list">
-                                    <ul>
-                                        <li class="font-bold tt-product-head">Camper van Peter en Jo... <span class="right">
-                                                <div class="review">
-                                                    <ul>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </span>
-                                        </li>
-                                        <li class="li-middle">from €100 per night <span class="right">(3)</span></li>
-                                        <li>
-                                            <div class="review r-bottom supply-details">
-                                                <ul>
-                                                    <li><img src="img/icon/icon-man.png" alt="">6</li>
-                                                    <li><i class="fa fa-bed" aria-hidden="true"></i> 4</li>
-                                                    <li><i class="fa fa-map-marker" aria-hidden="true"></i> Zamslag</li>
-                                                </ul>
-                                            </div> <span class="right save"><i class="fa fa-heart" aria-hidden="true"></i> Save</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!--bottom box link here-->
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
         <div class="row mb_35">
@@ -862,93 +759,8 @@ ul.product-meta-list li a:hover {
         </div>
     </div>
 </div>
-<div id="tab2" class="">
 
-    <div class="">
-        <div class="col-md-6">
-            <div class="product-reviews">
-                {% for rs in comments %}
-                    <div class="single-review">
-                        <div class="review-heading">
-                            <div><a href="#"><i class="fa fa-user-o"></i> {{ rs.user.username }}</a> </div>
-                            <div><b>{{ rs.subject }}</b> </div>
-                            <div><a href="#"><i class="fa fa-clock-o"></i> {{ rs.create_at}}</a></div>
 
-                            <div class="review-rating pull-right">
-                                <i class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}"></i>
-                                <i class="fa fa-star{% if rs.rate < 2 %}-o empty{% endif %}"></i>
-                                <i class="fa fa-star{% if rs.rate < 3 %}-o empty{% endif %}"></i>
-                                <i class="fa fa-star{% if rs.rate < 4 %}-o empty{% endif %}"></i>
-                                <i class="fa fa-star{% if rs.rate < 5 %}-o empty{% endif %}"></i>
-                            </div>
-                        </div>
-                        <div class="review-body">
-                            <p>{{ rs.comment }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-                <ul class="reviews-pages">
-                    <li class="active">1</li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <h4 class="text-uppercase">Write Your Review</h4>
-            {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{message.tags}} message" role="alert">
-                    {{ message |safe }}
-                    <a href="#" class="del-msg">&times;</a>
-                </div>
-            {% endfor %}
-            {% endif %}
-            <script>
-                $(document).ready(function() {
-                    // messages timeout for 10 sec 
-                    setTimeout(function() {
-                        $('.message').fadeOut('slow');
-                    }, 3000); // <-- time in milliseconds, 1000 =  1 sec
-            
-                    // delete message
-                    $('.del-msg').live('click',function(){
-                        $('.del-msg').parent().attr('style', 'display:none;');
-                    })
-                });
-            </script>
-           
-        </div>
-    </div>
-</div>
-
-<form class="review-form" action="{% url 'addcomment' supply.id %}" method="post">
-    {% csrf_token %}
-    <div class="form-group">
-        <input name="subject" class="input" type="text" placeholder="Your subject" />
-    </div>
-    <div class="form-group">
-        <textarea name="comment" class="input" placeholder="Your review"></textarea>
-    </div>
-    <div class="form-group">
-        <div class="input-rating">
-            <strong class="text-uppercase">Your Rating: </strong>
-            <div class="rate">
-                <input type="radio" id="star5" name="rate" value="5" /><label for="star5"></label>
-                <input type="radio" id="star4" name="rate" value="4" /><label for="star4"></label>
-                <input type="radio" id="star3" name="rate" value="3" /><label for="star3"></label>
-                <input type="radio" id="star2" name="rate" value="2" /><label for="star2"></label>
-                <input type="radio" id="star1" name="rate" value="1" /><label for="star1"></label>
-            </div>
-        </div>
-    </div>
-    {% if user.id is not None %}
-        <button class="primary-btn">Submit</button>
-    {% else %}
-        You must be logged in to post a review
-    {% endif %}
-</form>
 <script>
     /*!
      * Lightbox v2.10.0
